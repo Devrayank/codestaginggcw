@@ -4,9 +4,6 @@ require('dotenv').config();
 
 // const DB = "mongodb+srv://Tis216:Tis216@cluster0.ufju5.mongodb.net/Gcw?retryWrites=true&w=majority";
 
-
-console.log(process.env);
-
 const DB = process.env.DB;
 
 
