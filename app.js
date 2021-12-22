@@ -68,6 +68,12 @@ app.get("/wells-list",(req,res)=> {
 });
 
 
+
+app.get("/",(req,res)=> {
+   res.send("this is testting");
+});
+
+
 app.listen(port, () => {
     console.log(`connection port ${port}`);
 });
