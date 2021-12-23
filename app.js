@@ -26,15 +26,22 @@ app.post("/post-wells", (req,res) => {
     })
 });
 
-app.post("/post-user", (req,res) => {
+app.post("/post-user", async (req,res) => {
     console.log(req.body);
     const Usersdata = new User(req.body);
-    Usersdata.save().then(() => {
-        res.status(201).send(Usersdata);
-    }).catch((e) =>
-    {
-        res.status(400).send(e);
-    })
+
+    let user = await User.findOne({ email: req.body.email });
+    if (user) {
+        return res.status(400).send('That user already exisits!');
+    }
+    else{
+            Usersdata.save().then(() => {
+                res.status(201).send(Usersdata);
+            }).catch((e) =>
+            {
+                res.status(400).send(e);
+            })
+    }
 });
 
 app.post("/post-card", (req,res) => {
