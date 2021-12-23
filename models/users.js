@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
             }
         }
     },
+    password: {
+        type:Number,
+        required:true,
+        min:6
+    },
     phone: {
         type:Number,
         required:true,
