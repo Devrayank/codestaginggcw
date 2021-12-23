@@ -55,6 +55,29 @@ app.post("/post-user", async (req,res) => {
     }
 });
 
+app.post("/login-user", async (req,res) => {
+    console.log(req.body);
+    const Usersdata = new User(req.body);
+
+    let user = await User.findOne({ email: req.body.email, password: req.body.password });
+    if (user) {
+        return res.status(200).json({
+            message: 'Valid login',
+            status: true,
+            userId : user._id,
+            userName : user.name
+        })
+    }
+    else{
+        return res.status(201).json({
+            message: 'Invalid login',
+            status: false
+        });
+            
+    }
+});
+
+
 app.post("/post-card", (req,res) => {
    
     const Cardd = new Cart(req.body);
