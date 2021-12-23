@@ -32,11 +32,22 @@ app.post("/post-user", async (req,res) => {
 
     let user = await User.findOne({ email: req.body.email });
     if (user) {
-        return res.status(200).send('That user already exisits!');
+
+        return res.status(200).json({
+            message: 'Email already exists',
+            status: false
+        })
     }
     else{
             Usersdata.save().then(() => {
-                res.status(201).send(Usersdata);
+
+                return res.status(201).json({
+                    message: 'Successfully Register!',
+                    status: true,
+                    data : Usersdata
+                })
+
+               // res.status(201).send(Usersdata);
             }).catch((e) =>
             {
                 res.status(400).send(e);
