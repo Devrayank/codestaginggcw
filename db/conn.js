@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 //require("dotenv");
-require('dotenv').config();
+//require('dotenv').config();
 
-// const DB = "mongodb+srv://Tis216:Tis216@cluster0.ufju5.mongodb.net/Gcw?retryWrites=true&w=majority";
+ const DB = "mongodb+srv://Tis216:Tis216@cluster0.ufju5.mongodb.net/Gcw?retryWrites=true&w=majority, { useNewUrlParser: true, useUnifiedTopology: true }";
 
-const DB = process.env.DB;
+//const DB = process.env.DB;
 
 
 //mongoose.connect("mongodb://localhost:27017/Gcwapp", {
